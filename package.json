@@ -1,0 +1,9 @@
+{
+  "name": "style-guide",
+  "version": "0.0.1",
+  "description": "A set of standards for the writing, formatting and design which establishes requirements that improve communication and consistancy across Wonderbly.",
+  "main": "index.js",
+  "repository": "https://github.com/Lostmyname/style-guide",
+  "author": "Wonderbly Engineering",
+  "license": "MIT"
+}
