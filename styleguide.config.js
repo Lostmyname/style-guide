@@ -103,6 +103,7 @@ module.exports = {
 
     return props
   },
+  require: [ path.resolve(__dirname, 'src/styleguide/setup.js') ],
 
   sections: [
     addSection('Overview'),

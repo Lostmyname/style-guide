@@ -1,4 +1,4 @@
-Our Primary button colour is `green` (#2CB492) aligning with with progressive purchasing action associated with the button. The Secondary button colour is `grey-medium` associated with the explorative nature of the secondary CTA’s.
+Our Primary button colour is `green` aligning with with progressive purchasing action associated with the button. The Secondary button colour is `grey-medium` associated with the explorative nature of the secondary CTA’s.
 
 A Primary Button should only ever be used for positive, progressive actions. The Primary Button should guide users from any product creation page, though the product creation journey, and into the checkout phase.
 
@@ -10,21 +10,21 @@ An inactive button should not be given to the user without a clear call to actio
 
 #### Our primary button
 ```js { "noeditor": true }
-<div>
+<PlaygroundWrapper>
     <Button colour="green">This is a button</Button>
     <Button colour="green" raised>This is a button</Button>
     <Button colour="green" outlined>This is a button</Button>
     <Button colour="green" disabled>This is a button</Button>
-</div>
+</PlaygroundWrapper>
 ```
 
 #### Our secondary button
 ```js { "noeditor": true }
-<div>
-    <Button colour="yellow">This is a button</Button>
-    <Button colour="yellow" raised>This is a button</Button>
+<PlaygroundWrapper>
+    <Button colour="yellow">This is a button</Button>{' '}
+    <Button colour="yellow" raised>This is a button</Button>{' '}
     <Button colour="yellow" disabled>This is a button</Button>
-</div>
+</PlaygroundWrapper>
 ```
 
 ```js
