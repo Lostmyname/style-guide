@@ -1,53 +1,38 @@
 import styled from 'styled-components';
-import typography from 'src/styles/typography.styled';
 
-const palette = {
-  // Green
-  'green-light': '#BFE8DE',
-  'green': '#2CB492',
-  'green-medium': '#80D2BE',
-  'green-dark': '#176F5E',
-  // Yellow
-  'yellow-light': '#FFF0C3',
-  'yellow': '#FFCC37',
-  'yellow-medium': '#FFE087',
-  'yellow-dark': '#DDAC31',
-  // Pink
-  'pink-light': '#FCD4D7',
-  'pink': '#F6707B',
-  'pink-medium': '#FAA9B0',
-  'pink-dark': '#7A373D',
-  // Blue
-  'blue-light': '#B2CCE1',
-  'blue': '#69CFD5',
-  'blue-medium': '#00549a',
-  'blue-dark': '#5A6E73',
-  // Red
-  'red': '#F27860',
-  'red-dark': '#C65F4A',
-  // Purple
-  'purple-light': '#D0CEE1',
-  'purple': '#645B9B',
-  'purple-medium': '#A29DC3',
-  'purple-dark': '#312D4D',
-  // Orange
-  'orange-light': '#FCDDD0',
-  'orange': '#F48D61',
-  'orange-medium': '#F8BBA0',
-  'orange-dark': '#C65F4A',
-  // White
-  'white': '#FFFFFF',
-  // Stone
-  'stone-light': '#F5F5F0',
-  'stone': '#D8D4C7',
-  'stone-dark': '#ACA99D',
-  // Grey
-  'almost-light': '#F2F4F5',
-  'grey-light': '#B5BCC3',
-  'grey': '#5A6E73',
-  'grey-medium': '#6B7A87',
-  'grey-dark': '#3a4d5f',
-  'almost-black': '#092137',
+import { readableColor, tint } from 'polished';
+
+import typography from 'src/styles/typography.styled';
+import { palette } from 'src/styles/colors.styled';
+
+const getBackgroundColour = ({ colour, outlined, unstyled, disabled }, state = null) => {
+  if (outlined || unstyled) {
+    return 'transparent';
+  }
+
+  const color = palette[colour] || palette['grey-medium'];
+
+  if (disabled) {
+    return tint(0.5, color);
+  }
+
+  return color;
+};
+
+const getFontColour = (props, state = null) => {
+  const { colour, outlined } = props;
+
+  if (outlined) {
+    return palette[colour] || palette['grey-dark'];
+  }
+
+  switch (colour) {
+    case 'green':
+    case 'grey-medium':
+      return palette.white;
+    default:
+      return readableColor(getBackgroundColour(props), palette['almost-black'], palette.white);
+  }
 };
 
 const ButtonTag = styled.button`
@@ -56,17 +41,28 @@ const ButtonTag = styled.button`
   border: none;
   cursor: pointer;
   display: inline-block;
-  padding: 0.55556rem 2.22222rem;
-  border-radius: 0.22222rem;
+  padding: 10px 40px;
+  border-radius: 4px;
   text-align: center;
-  transition: 0.25s cubic-bezier(0.17, 0.67, 0.52, 0.97);
-  background: ${({ outlined, colour }) => !outlined && palette[colour]};
-  color: #FFFFFF;
+  transition: all 0.25s cubic-bezier(0.17, 0.67, 0.52, 0.97);
+  
+  background: ${props => getBackgroundColour(props)};
+  color: ${props => getFontColour(props)};
   
   &:hover,
   &:focus,
   &:active {
     outline: none;
+  }
+
+  &:hover {
+    background: ${props => getBackgroundColour(props, 'hover')};
+    color: ${props => getFontColour(props, 'hover')};
+  }
+  
+  &:active {
+    background: ${props => getBackgroundColour(props, 'active')};
+    color: ${props => getFontColour(props, 'active')};
   }
 `;
 

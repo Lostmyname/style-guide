@@ -46,7 +46,7 @@ const Tag = ({ href, children, ...rest }) => {
 /**
  * The only true button.
  *
- * @version 1.0.1
+ * @version 1.0.0
  * @author [Edwin Joseph](https://github.com/edwinjoseph)
  */
 const Button = ({ children, ...rest }) => (
