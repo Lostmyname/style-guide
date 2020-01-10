@@ -1,18 +1,35 @@
 const path = require('path');
-const package = require('./package');
+const fs = require('fs');
 
-const addSection = (name, path) => ([{
+const pkg = require('./package');
+
+const getContentPath = (name) => {
+  const contentPath = `src/docs/${name.toLowerCase()}.md`;
+  if (fs.existsSync(contentPath)) {
+    return contentPath;
+  }
+};
+
+const addSection = (name, sections = null) => ({
+  name,
+  sections,
+  sectionDepth: 1,
+  content: getContentPath(name),
+});
+
+const addComponents = (name, path = `src/components/${name.toLowerCase()}`) => ({
   name,
   sectionDepth: 1,
-  content: `${path}/Readme.md`,
   components: `${path}/**/*.js`,
-}]);
+  content: getContentPath(name),
+});
 
 module.exports = {
   title: 'Wonderbly Style Guide',
   moduleAliases: {
     'src': path.resolve(__dirname, 'src'),
     'wonderbly-components': path.resolve(__dirname, 'src/components'),
+    'styleguide-client': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client'),
     'styleguide-components': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client/rsg-components')
   },
   ignore: [
@@ -34,7 +51,7 @@ module.exports = {
         },
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css?family=Poppins&display=swap'
+          href: 'https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,800,800i&display=swap'
         },
       ],
     }
@@ -45,47 +62,21 @@ module.exports = {
       monospace: '"Inconsolata", monospace'
     }
   },
-  sections: [
-    {
-      name: 'Wonderbly Style Guide',
-      content: 'src/docs/introduction.md',
-      sectionDepth: 1,
-    },
-    {
-      name: 'Rules',
-      content: 'src/docs/rules.md',
-      sectionDepth: 1,
-      sections: [
-        {
-          name: 'Type',
-          content: 'src/docs/type.md',
-          sectionDepth: 1,
-        }
-      ],
-    },
-    {
-      name: 'Components',
-      content: 'src/components/Readme.md',
-      sectionDepth: 1,
-      sections: [
-        ...addSection('Atoms', 'src/components/atoms'),
-        // ...addSection('Molecules', 'src/components/molecules'),
-        // ...addSection('Organisms', 'src/components/organisms'),
-      ]
-    }
-  ],
   styleguideComponents: {
-    Editor: path.join(__dirname, 'src/styleguide/components/Editor'),
-    JsDoc: path.join(__dirname, 'src/styleguide/components/JsDoc'),
-    PathlineRenderer: path.join(__dirname, 'src/styleguide/components/PathlineRenderer'),
-    Playground: path.join(__dirname, 'src/styleguide/components/Playground'),
-    ReactComponentRenderer: path.join(__dirname, 'src/styleguide/components/ReactComponentRenderer'),
+    Editor: path.join(__dirname, 'src/styleguide/components/overrides/Editor'),
+    JsDoc: path.join(__dirname, 'src/styleguide/components/overrides/JsDoc'),
+    PathlineRenderer: path.join(__dirname, 'src/styleguide/components/overrides/PathlineRenderer'),
+    Playground: path.join(__dirname, 'src/styleguide/components/overrides/Playground'),
+    ReactComponent: path.join(__dirname, 'src/styleguide/components/overrides/ReactComponent'),
+    SectionRenderer: path.join(__dirname, 'src/styleguide/components/overrides/SectionRenderer'),
+    SectionHeadingRenderer: path.join(__dirname, 'src/styleguide/components/overrides/SectionHeadingRenderer'),
+    TableOfContents: path.join(__dirname, 'src/styleguide/components/overrides/TableOfContents'),
   },
   getComponentPathLine(componentPath) {
-    if (!package && !package.repository) {
+    if (!pkg && !pkg.repository) {
       return componentPath;
     }
-    return `[${componentPath}](${package.repository}/blob/master/${componentPath})`
+    return `[${componentPath}](${pkg.repository}/blob/master/${componentPath})`
   },
   updateDocs(docs) {
     if (docs && docs.displayName) {
@@ -97,16 +88,30 @@ module.exports = {
     const { lang, content } = props;
 
     if (lang === 'javascript' || lang === 'js' || lang === 'jsx') {
+      const importStringRegex = /import [a-zA-z0-9]+ from ["'][\w-/]+["'];/gm;
+
       const examplePath = exampleFilePath.replace(`${__dirname}/`, '');
       const dir = path.dirname(examplePath).replace('src/components', 'wonderbly-components');
       const name = dir.split('/').pop();
       const importString = `import ${name} from '${dir}';`;
 
-      if (content !== importString) {
+      if (!content.match(importStringRegex)) {
         props.content = `${importString}\n\n${content}`
       }
     }
 
     return props
-  }
+  },
+
+  sections: [
+    addSection('Overview'),
+    addSection('Rules', [
+      addSection('Type')
+    ]),
+    addSection('Components', [
+      addComponents('Atoms'),
+      addComponents('Molecules'),
+      addComponents('Organisms'),
+    ]),
+  ],
 };

@@ -3,7 +3,9 @@ import typography from 'src/styles/typography.styled';
 
 const Component = styled.section``;
 
-Component.Header = styled.header``;
+Component.Header = styled.header`
+  margin-bottom: 20px;
+`;
 Component.Header.Docs = styled.div`
   ${typography.font.monospace}
   ${typography.fontSize(14)}
@@ -24,5 +26,9 @@ Component.Header.Docs = styled.div`
   }
 `;
 Component.Content = styled.main``;
+Component.Content.Title = styled.h4`
+  ${typography.font.base}
+  margin: 0;
+`
 
 export default Component;

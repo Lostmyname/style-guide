@@ -9,7 +9,7 @@ import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-javascript';
 import 'prismjs/components/prism-jsx';
 
-import Window from '../custom/Window';
+import Window from '../../custom/Window';
 
 const highlight = (code) => prismHighlight(code, languages.jsx, 'jsx');
 

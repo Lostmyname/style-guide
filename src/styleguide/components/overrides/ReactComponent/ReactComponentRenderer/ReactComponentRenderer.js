@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import DefaultPathline from 'styleguide-components/Pathline';
+import Tabs from 'src/styleguide/components/custom/Tabs';
 
 import Component from './ReactComponentRenderer.styled';
+import compact from 'lodash/compact';
 
 const ReactComponentRenderer = ({
   heading,
@@ -11,7 +13,6 @@ const ReactComponentRenderer = ({
   description,
   docs,
   examples,
-  tabButtons,
   tabBody
 }) => (
   <Component>
@@ -24,18 +25,11 @@ const ReactComponentRenderer = ({
         </Component.Header.Docs>
       )}
     </Component.Header>
-    {description && (
-      <Component.Content>
-        {description}
-      </Component.Content>
-    )}
     {examples}
-    {tabButtons && (
-      <div>
-        <div>{tabButtons}</div>
-        <div>{tabBody}</div>
-      </div>
-    )}
+    <Tabs
+      tabTitles={compact([description && 'Developer notes', tabBody && 'PropType Table'])}
+      tabItems={compact([description, tabBody])}
+    />
   </Component>
 );
 
