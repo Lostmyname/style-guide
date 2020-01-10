@@ -8,6 +8,25 @@ A Tertiary Button can be used at the discretion of the designer as an alternativ
 
 An inactive button should not be given to the user without a clear call to action to the next state. Where there’s a clear error or blocker in the customer journey, a disabled button should be used to reinforce the importance of missing information or as a way of reiterating that the next progression in the journey is unattainable. It should never be used as the only indicator to a user that they are unable to progressed with a task.
 
+#### Our primary button
+```js { "noeditor": true }
+<div>
+    <Button colour="green">This is a button</Button>
+    <Button colour="green" raised>This is a button</Button>
+    <Button colour="green" outlined>This is a button</Button>
+    <Button colour="green" disabled>This is a button</Button>
+</div>
+```
+
+#### Our secondary button
+```js { "noeditor": true }
+<div>
+    <Button colour="yellow">This is a button</Button>
+    <Button colour="yellow" raised>This is a button</Button>
+    <Button colour="yellow" disabled>This is a button</Button>
+</div>
+```
+
 ```js
 <Button>This is a button</Button>
 ```
