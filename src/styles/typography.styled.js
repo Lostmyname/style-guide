@@ -21,11 +21,6 @@ const fontSize = (value, useOldLineHeightCalc = false) => css`
   ${lineHeight(value, useOldLineHeightCalc)}
 `;
 
-const peta = css`
-  ${fontSize(36, true)}
-  font-weight: 600;
-`;
-
 const tera = css`
   ${fontSize(30, true)}
   font-weight: 600;
@@ -66,7 +61,6 @@ export default {
   lineHeight,
   fontSize,
   font,
-  peta,
   tera,
   giga,
   mega,
