@@ -38,6 +38,7 @@ const getFontColour = (props, state = null) => {
 const ButtonTag = styled.button`
   ${({ textSize }) => textSize === 'small' ? typography.micro : typography.base}
   
+  font-family: inherit;
   border: none;
   cursor: pointer;
   display: inline-block;
