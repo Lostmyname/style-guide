@@ -1,6 +1,8 @@
 import { css } from 'styled-components';
 import { rem } from 'polished';
 
+export const BASE_FONT_SIZE = 18;
+
 const font = {
   base: css`
     font-family: 'Poppins', sans-serif;
@@ -10,7 +12,7 @@ const font = {
   `,
 };
 
-const baseRem = value => rem(value, 18);
+const baseRem = value => rem(value, BASE_FONT_SIZE);
 
 const lineHeight = (value, useOldCalc = false) => css`
   line-height: ${useOldCalc ? ((value + 8) / value) : baseRem(value * 1.618)};

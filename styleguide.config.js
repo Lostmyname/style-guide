@@ -71,6 +71,7 @@ module.exports = {
     SectionRenderer: path.join(__dirname, 'src/styleguide/components/overrides/SectionRenderer'),
     SectionHeadingRenderer: path.join(__dirname, 'src/styleguide/components/overrides/SectionHeadingRenderer'),
     TableOfContents: path.join(__dirname, 'src/styleguide/components/overrides/TableOfContents'),
+    StyleGuideRenderer: path.join(__dirname, 'src/styleguide/components/overrides/StyleGuideRenderer'),
   },
   getComponentPathLine(componentPath) {
     if (!pkg && !pkg.repository) {
