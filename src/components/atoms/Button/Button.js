@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import generateDataClass from 'src/utils/generate-data-class';
+
 import ButtonTag, { ButtonLinkTag } from './Button.styled';
 
 const oneOfProps = {
@@ -49,11 +51,16 @@ const Tag = ({ href, children, ...rest }) => {
  * @version 1.0.0
  * @author [Edwin Joseph](https://github.com/edwinjoseph)
  */
-const Button = ({ children, ...rest }) => (
-  <Tag {...rest} data-classname="button">
-    {children}
-  </Tag>
-);
+const Button = ({ children, ...rest }) => {
+  const classNames = generateDataClass('button', rest,
+    ['raised', 'outlined', 'unstyled', 'textSize', 'fullWidth', 'disabled', 'colour']
+  );
+  return (
+    <Tag data-classnames={classNames} {...rest}>
+      {children}
+    </Tag>
+  );
+};
 
 Button.propTypes = {
   href: PropTypes.string,
