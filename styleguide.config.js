@@ -42,25 +42,8 @@ module.exports = {
     '**/*.d.ts'
   ],
   pagePerSection: true,
-  template: {
-    head: {
-      links: [
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css?family=Inconsolata&display=swap'
-        },
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,800,800i&display=swap'
-        },
-      ],
-    }
-  },
   theme: {
-    fontFamily: {
-      base: '"Poppins", sans-serif',
-      monospace: '"Inconsolata", monospace'
-    }
+    fontFamily: { base: ['inherit'] },
   },
   styleguideComponents: {
     Editor: path.join(__dirname, 'src/styleguide/components/overrides/Editor'),

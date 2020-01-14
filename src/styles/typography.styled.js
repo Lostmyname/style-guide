@@ -1,15 +1,38 @@
 import { css } from 'styled-components';
-import { rem } from 'polished';
+import { rem, fontFace } from 'polished';
 
-export const BASE_FONT_SIZE = 18;
+export const BASE_FONT_SIZE = 16;
+
+const addFont = (fontName, fileName, fontWeight = 400, fontStyle = 'normal', fileFormats = ['eot','woff2','woff', 'svg']) => css`
+  ${fontFace({
+    fontFamily: fontName,
+    fontFilePath: `./src/assets/fonts/${fileName}`,
+    fontWeight: fontWeight,
+    fontStyle: fontStyle,
+    fileFormats: fileFormats 
+  })}
+`;
+
 
 const font = {
   base: css`
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Lato', sans-serif;
+  `,
+  headings: css`
+    font-family: 'Wonderbly Boing', sans-serif;
   `,
   monospace: css`
     font-family: 'Inconsolata', monospace;
   `,
+  imports: css`
+    @import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
+    
+    ${addFont('Wonderbly Boing', 'WonderblyBoing-RegularWEB')};
+    ${addFont('Wonderbly Boing', 'WonderblyBoing-LightWEB', 200)}
+    ${addFont('Wonderbly Boing', 'WonderblyBoing-MediumWEB', 500)};
+    ${addFont('Wonderbly Boing', 'WonderblyBoing-SemiBoldWEB', 500)};
+  `
 };
 
 const baseRem = value => rem(value, BASE_FONT_SIZE);
@@ -31,16 +54,19 @@ const fontSize = (value, { desktopValue, useOldLineHeightCalc = false } = {}) =>
 
 const tera = css`
   ${fontSize(30, { desktopValue: 36, useOldLineHeightCalc: true })}
+  ${font.headings};
   font-weight: 600;
 `;
 
 const giga = css`
   ${fontSize(24, { desktopValue: 30, useOldLineHeightCalc: true })}
+  ${font.headings};
   font-weight: 500;
 `;
 
 const mega = css`
   ${fontSize(20, { desktopValue: 24, useOldLineHeightCalc: true })}
+  ${font.headings};
   font-weight: 400;
 `;
 
