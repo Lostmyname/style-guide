@@ -35,5 +35,4 @@ TabsBase.TabListWrapper = styled.div`
   }
 `;
 
-/** @component */
 export default TabsBase;

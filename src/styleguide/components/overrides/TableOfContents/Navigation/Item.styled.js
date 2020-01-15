@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { palette } from 'src/styles/colors.styled';
 import typography from 'src/styles/typography.styled';
 
-/** @component */
 const NavItem = styled.li`
   ${typography.fontSize(14)}; 
   
@@ -37,7 +36,6 @@ const NavItem = styled.li`
   }
 `;
 
-/** @component */
 NavItem.Heading = styled.h4`
   ${({ depth }) => depth === 0 && typography.fontSize(16)};
   ${({ depth }) => depth === 1 && typography.fontSize(14)};
@@ -57,5 +55,4 @@ NavItem.Heading = styled.h4`
   }
 `;
 
-/** @component */
 export default NavItem;

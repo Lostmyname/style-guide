@@ -6,5 +6,4 @@ const Nav = styled.ul`
   list-style: none;
 `;
 
-/** @component */
 export default Nav;

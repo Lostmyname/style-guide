@@ -29,7 +29,6 @@ Component.Content = styled.main``;
 Component.Content.Title = styled.h4`
   ${typography.font.base}
   margin: 0;
-`;
+`
 
-/** @component */
 export default Component;
