@@ -6,4 +6,5 @@ const Wrapper = styled.div`
   }
 `;
 
+/** @component */
 export default Wrapper;

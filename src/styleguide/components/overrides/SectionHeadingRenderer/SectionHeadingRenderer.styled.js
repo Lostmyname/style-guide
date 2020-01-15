@@ -16,4 +16,5 @@ Header.Deprecated = styled.span`
   text-transform: uppercase;
 `;
 
+/** @component */
 export default Header;

@@ -12,4 +12,5 @@ PlaygroundBase.Preview = styled.div`
   border-bottom: 1px solid #F2F2F2;
 `;
 
+/** @component */
 export default PlaygroundBase;
