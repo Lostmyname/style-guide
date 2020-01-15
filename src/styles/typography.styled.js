@@ -35,7 +35,7 @@ const font = {
   `
 };
 
-const baseRem = value => rem(value, BASE_FONT_SIZE);
+export const baseRem = value => rem(value, BASE_FONT_SIZE);
 
 const lineHeight = (value, useOldCalc = false) => css`
   line-height: ${useOldCalc ? ((value + 8) / value) : baseRem(value * 1.618)};

@@ -1,39 +1,8 @@
 import styled from 'styled-components';
 
-import { readableColor, tint } from 'polished';
-
 import typography from 'src/styles/typography.styled';
-import { palette } from 'src/styles/colors.styled';
 
-const getBackgroundColour = ({ colour, outlined, unstyled, disabled }, state = null) => {
-  if (outlined || unstyled) {
-    return 'transparent';
-  }
-
-  const color = palette[colour] || palette['grey-medium'];
-
-  if (disabled) {
-    return tint(0.5, color);
-  }
-
-  return color;
-};
-
-const getFontColour = (props, state = null) => {
-  const { colour, outlined } = props;
-
-  if (outlined) {
-    return palette[colour] || palette['grey-dark'];
-  }
-
-  switch (colour) {
-    case 'green':
-    case 'grey-medium':
-      return palette.white;
-    default:
-      return readableColor(getBackgroundColour(props), palette['almost-black'], palette.white);
-  }
-};
+import { defaultButton, outlinedButton, raisedButton, disabledButton } from './helpers.styled';
 
 const ButtonTag = styled.button`
   ${({ textSize }) => textSize === 'small' ? typography.micro : typography.base}
@@ -47,24 +16,18 @@ const ButtonTag = styled.button`
   text-align: center;
   transition: all 0.25s cubic-bezier(0.17, 0.67, 0.52, 0.97);
   
-  background: ${props => getBackgroundColour(props)};
-  color: ${props => getFontColour(props)};
+  width: ${({ fullWidth }) => fullWidth && '100%'};
   
   &:hover,
   &:focus,
   &:active {
     outline: none;
   }
-
-  &:hover {
-    background: ${props => getBackgroundColour(props, 'hover')};
-    color: ${props => getFontColour(props, 'hover')};
-  }
   
-  &:active {
-    background: ${props => getBackgroundColour(props, 'active')};
-    color: ${props => getFontColour(props, 'active')};
-  }
+  ${({ outlined, unstyled, colour }) => !outlined && !unstyled && defaultButton(colour)}
+  ${({ outlined, unstyled, colour }) => outlined && !unstyled && outlinedButton(colour)}
+  ${({ raised, colour }) => raised && raisedButton(colour)};
+  ${({ disabled }) => disabled && disabledButton};
 `;
 
 /** @component */

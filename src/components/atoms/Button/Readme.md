@@ -21,8 +21,9 @@ An inactive button should not be given to the user without a clear call to actio
 #### Our secondary button
 ```js { "noeditor": true }
 <PlaygroundWrapper>
-    <Button colour="yellow">This is a button</Button>{' '}
-    <Button colour="yellow" raised>This is a button</Button>{' '}
+    <Button colour="yellow">This is a button</Button>
+    <Button colour="yellow" raised>This is a button</Button>
+    <Button colour="yellow" outlined>This is a button</Button>
     <Button colour="yellow" disabled>This is a button</Button>
 </PlaygroundWrapper>
 ```
