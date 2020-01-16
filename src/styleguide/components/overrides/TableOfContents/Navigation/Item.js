@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 
 import { useStyleGuideContext } from 'styleguide-components/Context';
 
-import DefaultLink from 'styleguide-components/Link';
-
 import NavItem from './Item.styled';
 
-const Link = ({ href, target, sections, depth, handleOnClick, children }) => {
+const Link = ({ href, target, sections, depth, selected, handleOnClick, children }) => {
   if (href === '_blank' || (sections && sections.length !== 0 && depth === 0)) {
     return (
       <Fragment>
@@ -23,15 +21,15 @@ const Link = ({ href, target, sections, depth, handleOnClick, children }) => {
     );
   }
 
-
   return (
-    <DefaultLink
+    <NavItem.Link
       href={href}
       onClick={handleOnClick}
       target={target}
+      selected={selected}
     >
       {children}
-    </DefaultLink>
+    </NavItem.Link>
   )
 };
 
@@ -49,13 +47,14 @@ const Item = ({
   const [ open, setOpen ] = useState(!!initialOpen);
 
   return (
-    <NavItem depth={depth} selected={selected}>
+    <NavItem depth={depth}>
       <Link
         href={href}
         onClick={() => setOpen(tocMode !== 'collapse' ? true : !open)}
         target={shouldOpenInNewTab ? '_blank' : undefined}
         sections={sections}
         depth={depth}
+        selected={selected}
       >
         {visibleName}
       </Link>
