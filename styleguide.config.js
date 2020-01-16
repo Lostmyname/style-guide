@@ -25,13 +25,6 @@ const addComponents = (name, path = `src/components/${name.toLowerCase()}`) => (
 });
 
 module.exports = {
-  title: 'Wonderbly Style Guide',
-  moduleAliases: {
-    'src': path.resolve(__dirname, 'src'),
-    'wonderbly-components': path.resolve(__dirname, 'src/components'),
-    'styleguide-client': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client'),
-    'styleguide-components': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client/rsg-components')
-  },
   ignore: [
     'src/styleguide/**/*',
     '**/__tests__/**',
@@ -41,10 +34,14 @@ module.exports = {
     '**/*.spec.{js,jsx,ts,tsx}',
     '**/*.d.ts'
   ],
-  pagePerSection: true,
-  theme: {
-    fontFamily: { base: ['inherit'] },
+  moduleAliases: {
+    'src': path.resolve(__dirname, 'src'),
+    'wonderbly-components': path.resolve(__dirname, 'src/components'),
+    'styleguide-client': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client'),
+    'styleguide-components': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client/rsg-components')
   },
+  pagePerSection: true,
+  require: [ path.resolve(__dirname, 'src/styleguide/setup.js') ],
   styleguideComponents: {
     Editor: path.join(__dirname, 'src/styleguide/components/overrides/Editor'),
     JsDoc: path.join(__dirname, 'src/styleguide/components/overrides/JsDoc'),
@@ -55,6 +52,10 @@ module.exports = {
     SectionHeadingRenderer: path.join(__dirname, 'src/styleguide/components/overrides/SectionHeadingRenderer'),
     TableOfContents: path.join(__dirname, 'src/styleguide/components/overrides/TableOfContents'),
     StyleGuideRenderer: path.join(__dirname, 'src/styleguide/components/overrides/StyleGuideRenderer'),
+  },
+  title: 'Wonderbly Style Guide',
+  theme: {
+    fontFamily: { base: ['inherit'] },
   },
   getComponentPathLine(componentPath) {
     if (!pkg && !pkg.repository) {
@@ -86,7 +87,6 @@ module.exports = {
 
     return props
   },
-  require: [ path.resolve(__dirname, 'src/styleguide/setup.js') ],
 
   sections: [
     addSection('Overview'),
