@@ -6,7 +6,7 @@ import generateDataClass from 'src/utils/generate-data-class';
 import ButtonTag, { ButtonLinkTag } from './Button.styled';
 
 const oneOfProps = {
-  colour: [
+  color: [
     'green-light',
     'green',
     'green-medium',
@@ -53,7 +53,7 @@ const Tag = ({ href, children, ...rest }) => {
  */
 const Button = ({ children, ...rest }) => {
   const classNames = generateDataClass('button', rest,
-    ['raised', 'outlined', 'unstyled', 'textSize', 'fullWidth', 'disabled', 'colour']
+    ['raised', 'outlined', 'unstyled', 'textSize', 'fullWidth', 'disabled', 'color']
   );
   return (
     <Tag data-classnames={classNames} {...rest}>
@@ -72,14 +72,14 @@ Button.propTypes = {
   /** Span the button across the available parent space */
   fullWidth: PropTypes.bool,
   /** Change the color of a button */
-  colour: PropTypes.oneOf(oneOfProps.colour),
+  color: PropTypes.oneOf(oneOfProps.color),
   textSize: PropTypes.oneOf(oneOfProps.textSize),
   onClick: PropTypes.func,
   children: PropTypes.node.isRequired
 };
 
 Button.defaultProps = {
-  colour: 'grey-medium',
+  color: 'grey-medium',
   raised: false
 };
 

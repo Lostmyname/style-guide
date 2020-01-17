@@ -11,20 +11,20 @@ An inactive button should not be given to the user without a clear call to actio
 #### Our primary button
 ```js { "noeditor": true }
 <PlaygroundWrapper>
-    <Button colour="green">This is a button</Button>
-    <Button colour="green" raised>This is a button</Button>
-    <Button colour="green" outlined>This is a button</Button>
-    <Button colour="green" disabled>This is a button</Button>
+    <Button color="green">This is a button</Button>
+    <Button color="green" raised>This is a button</Button>
+    <Button color="green" outlined>This is a button</Button>
+    <Button color="green" disabled>This is a button</Button>
 </PlaygroundWrapper>
 ```
 
 #### Our secondary button
 ```js { "noeditor": true }
 <PlaygroundWrapper>
-    <Button colour="yellow">This is a button</Button>
-    <Button colour="yellow" raised>This is a button</Button>
-    <Button colour="yellow" outlined>This is a button</Button>
-    <Button colour="yellow" disabled>This is a button</Button>
+    <Button color="yellow">This is a button</Button>
+    <Button color="yellow" raised>This is a button</Button>
+    <Button color="yellow" outlined>This is a button</Button>
+    <Button color="yellow" disabled>This is a button</Button>
 </PlaygroundWrapper>
 ```
 
