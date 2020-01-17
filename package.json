@@ -28,12 +28,17 @@
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "babel-plugin-styled-components": "^1.10.6",
     "prop-types": "^15.7.2"
   },
   "scripts": {
     "start": "styleguidist server",
     "build": "styleguidist build",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "build:run": "yarn build && http-server ./styleguide -d false"
   },
   "eslintConfig": {
     "extends": "react-app",
