@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 
 import { useStyleGuideContext } from 'styleguide-components/Context';
 
-import DefaultLink from 'styleguide-components/Link';
-
 import NavItem from './Item.styled';
 
 const Link = ({ href, target, sections, depth, handleOnClick, children }) => {
@@ -25,13 +23,13 @@ const Link = ({ href, target, sections, depth, handleOnClick, children }) => {
 
 
   return (
-    <DefaultLink
+    <a
       href={href}
       onClick={handleOnClick}
       target={target}
     >
       {children}
-    </DefaultLink>
+    </a>
   )
 };
 
