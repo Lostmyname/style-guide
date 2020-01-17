@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { readableColor, darken } from 'polished';
+import { darken } from 'polished';
 import { palette } from 'src/styles/colors.styled';
 import { baseRem } from 'src/styles/typography.styled';
 
@@ -59,7 +59,7 @@ export const outlinedButton = baseColor => css`
       box-shadow: none;
       padding-bottom: 8px;
       margin-bottom: 0;
-      color: ${readableColor(palette[baseColor] || palette['grey-medium'], palette['almost-black'], palette.white)};
+      color: ${palette.white};
       transform: scale(0.95) translateY(0);
     }
   `}
