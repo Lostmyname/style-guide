@@ -68,6 +68,7 @@ export const outlinedButton = baseColor => css`
 export const raisedButton = (baseColor) => css`
   ${buttonBoxShadow(darken(0.15, palette[baseColor] || palette['grey-medium']))}
   padding-bottom: 6px;
+  margin-bottom: 4px;
   
   ${({ disabled }) => !disabled && css`
     &:hover,
@@ -84,6 +85,7 @@ export const raisedButton = (baseColor) => css`
       box-shadow: none;
       transform: translateY(2px);
       padding-bottom: 8px;
+      margin-bottom: 0;
     }
   `};
 `;
