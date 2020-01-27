@@ -4,7 +4,11 @@ import Wrapper from './PlaygroundWrapper.styled';
 
 const PlaygroundWrapper = ({ children, spacing = 5 }) => (
   <Wrapper spacing={spacing}>
-    {children}
+    {React.Children.map(children, (child, idx) => (
+      <div key={idx}>
+        {child}
+      </div>
+    ))}
   </Wrapper>
 );
 
