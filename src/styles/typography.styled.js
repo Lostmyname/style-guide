@@ -1,6 +1,8 @@
 import { css } from 'styled-components';
 import { rem, fontFace } from 'polished';
 
+import { on } from './responsive.styles';
+
 export const BASE_FONT_SIZE = 16;
 
 const addFont = (fontName, fileName, fontWeight = 400, fontStyle = 'normal', fileFormats = ['eot','woff2','woff', 'svg']) => css`
@@ -43,9 +45,9 @@ const lineHeight = (value, useOldCalc = false) => css`
 
 const fontSize = (value, { desktopValue, useOldLineHeightCalc = false } = {}) => css`
   font-size: ${baseRem(value)};
-  ${lineHeight(value, useOldLineHeightCalc)}
-  ${desktopValue && desktopValue !== value && 
-    `@media screen (min-width: 778px) {
+  ${lineHeight(value, useOldLineHeightCalc)};
+  ${desktopValue && desktopValue !== value &&
+    on('tablet-up')`
       font-size: ${baseRem(desktopValue)};
       ${lineHeight(desktopValue, useOldLineHeightCalc)}
     }`

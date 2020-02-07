@@ -5,7 +5,7 @@ import copy from 'copy-to-clipboard';
 import WindowBase from './Window.styled';
 
 const Window = ({ title, initialCopyLabel, successCopyLabel, failedCopyLabel, children, handleCopyOnClick }) => {
-  const [{ copyLabel }, dispatch] = useReducer((state, { type }) => {
+  const [{ copyLabel }, dispatch] = useReducer((state, type) => {
     switch (type) {
       case true:
         return { copyLabel: successCopyLabel };

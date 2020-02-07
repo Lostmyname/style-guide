@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import typography from 'src/styles/typography.styled';
 
-import { defaultButton, outlinedButton, raisedButton, disabledButton } from './helpers.styled';
+import { defaultButton, outlinedButton, raisedButton, unstyledButton, disabledButton } from './helpers.styled';
 
 const ButtonTag = styled.button`
   ${({ textSize }) => textSize === 'small' ? typography.micro : typography.base}
@@ -24,9 +24,10 @@ const ButtonTag = styled.button`
     outline: none;
   }
   
-  ${({ outlined, unstyled, color, }) => !outlined && !unstyled && defaultButton(color)}
-  ${({ outlined, unstyled, color, }) => outlined && !unstyled && outlinedButton(color)}
-  ${({ raised, color }) => raised && raisedButton(color)};
+  ${({ outlined, unstyled, color, }) => !outlined && !unstyled && defaultButton(color)};
+  ${({ outlined, unstyled, color, }) => outlined && !unstyled && outlinedButton(color)};
+  ${({ raised, unstyled, color }) => raised && !unstyled && raisedButton(color)};
+  ${({ unstyled }) => unstyled && unstyledButton};
   ${({ disabled }) => disabled && disabledButton};
 `;
 

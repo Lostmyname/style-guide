@@ -90,6 +90,18 @@ export const raisedButton = (baseColor) => css`
   `};
 `;
 
+export const unstyledButton = css`
+  background-color: transparent;
+  border-color: transparent;
+  color: ${palette['almost-black']};
+  padding-left: 0;
+  padding-right: 0;
+  &:hover, 
+  &:focus {
+    color: ${({ color }) => palette[color] || palette['grey-medium']};
+  }
+`;
+
 export const disabledButton = css`
   &,
   &:hover,

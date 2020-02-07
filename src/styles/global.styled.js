@@ -8,6 +8,9 @@ const GlobalStyle = createGlobalStyle`
     ${typography.font.base}
     font-size: ${BASE_FONT_SIZE}px;
   }
+  * {
+    box-sizing: border-box;
+  }
 `;
 
 export default GlobalStyle;

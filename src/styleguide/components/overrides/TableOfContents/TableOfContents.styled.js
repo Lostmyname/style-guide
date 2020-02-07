@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
-const TOC = styled.div``;
+import { on } from 'src/styles/responsive.styles';
+
+const TOC = styled.div`
+  overflow-y: auto;
+  ${on('fablet-down')`
+    height: calc(100vh - 145px);
+  `}
+`;
 
 export default TOC;

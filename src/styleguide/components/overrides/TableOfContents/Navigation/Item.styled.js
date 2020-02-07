@@ -10,11 +10,12 @@ const NavItem = styled.li`
   & > a {
     display: inline-block;
     text-decoration: none;
-    width: 100%;
+    width: calc(100% + 20px);
     margin: 0 -10px;
     padding: 8px 10px;
     position: relative;
     color: ${({ selected }) => selected ? '#FFF' : palette['almost-black']}
+    z-index: 1;
     &:before {
       content: '';
       width: 100%;

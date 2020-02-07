@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
+  display: inline-block;
   & > * {
     width: 100%;
     display: inline-block;
+      float: left;
     & > * {
       width: 100%;
+      float: left;
     }
   }
   & > *:not(:last-child) {

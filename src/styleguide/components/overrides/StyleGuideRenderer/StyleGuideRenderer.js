@@ -1,15 +1,16 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import DefaultStyleGuideRenderer from 'styleguide-components/StyleGuide/StyleGuideRenderer';
+import { ViewportProvider } from 'react-viewport-utils';
 
 import GlobalStyles from 'src/styles/global.styled';
+import App from 'src/styleguide/App';
 
 const StyleGuideRenderer = (props) => (
-  <Fragment>
+  <ViewportProvider>
     <GlobalStyles />
-    <DefaultStyleGuideRenderer {...props} />
-  </Fragment>
+    <App {...props} />
+  </ViewportProvider>
 );
 
 StyleGuideRenderer.propTypes = {
