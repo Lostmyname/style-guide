@@ -44,8 +44,8 @@
   "scripts": {
     "start": "styleguidist server",
     "test": "react-scripts test",
-    "app:build": "styleguidist build",
-    "app:build:run": "yarn app:build && http-server ./styleguide -d false",
+    "build": "styleguidist build",
+    "build:run": "yarn app:build && http-server ./styleguide -d false",
     "tool:build": "rm -rf lib && babel src --out-dir lib"
   },
   "eslintConfig": {
