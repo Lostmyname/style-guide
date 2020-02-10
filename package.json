@@ -5,14 +5,9 @@
   "repository": "https://github.com/Lostmyname/style-guide",
   "author": "Wonderbly Engineering",
   "license": "MIT",
-  "files": [
-    "src/assets/**/*",
-    "src/components/**/*",
-    "src/config/**/*",
-    "src/hooks/**/*",
-    "src/styles/**/*"
-  ],
+  "files": [ "lib/**/*" ],
   "dependencies": {
+    "@babel/polyfill": "^7.8.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -35,17 +30,20 @@
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
     "@babel/plugin-transform-runtime": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
     "babel-plugin-styled-components": "^1.10.6",
     "prop-types": "^15.7.2"
   },
   "scripts": {
     "start": "styleguidist server",
-    "build": "styleguidist build",
     "test": "react-scripts test",
-    "build:run": "yarn build && http-server ./styleguide -d false"
+    "app:build": "styleguidist build",
+    "app:build:run": "yarn app:build && http-server ./styleguide -d false",
+    "tool:build": "rm -rf lib && babel src --out-dir lib"
   },
   "eslintConfig": {
     "extends": "react-app",
