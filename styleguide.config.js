@@ -3,6 +3,10 @@ const fs = require('fs');
 
 const pkg = require('./package');
 
+let pageCount = 0;
+
+const isRoot = () => pageCount === 0;
+
 const getContentPath = (name) => {
   const contentPath = `src/docs/${name.toLowerCase()}.md`;
   if (fs.existsSync(contentPath)) {
@@ -10,12 +14,20 @@ const getContentPath = (name) => {
   }
 };
 
-const addSection = (name, sections = null) => ({
-  name,
-  sections,
-  sectionDepth: 1,
-  content: getContentPath(name),
-});
+
+const addSection = (name, sections) => {
+  let href = isRoot() ? '/' : null;
+  pageCount++;
+
+  return {
+    name,
+    sections,
+    href,
+    sectionDepth: 1,
+    content: getContentPath(name),
+    external: false
+  }
+};
 
 const addComponents = (name, path = `src/components/${name.toLowerCase()}`) => ({
   name,
@@ -48,6 +60,7 @@ module.exports = {
     PathlineRenderer: path.join(__dirname, 'src/styleguide/components/overrides/PathlineRenderer'),
     Playground: path.join(__dirname, 'src/styleguide/components/overrides/Playground'),
     ReactComponent: path.join(__dirname, 'src/styleguide/components/overrides/ReactComponent'),
+    Sections: path.join(__dirname, 'src/styleguide/components/overrides/Sections'),
     SectionRenderer: path.join(__dirname, 'src/styleguide/components/overrides/SectionRenderer'),
     SectionHeadingRenderer: path.join(__dirname, 'src/styleguide/components/overrides/SectionHeadingRenderer'),
     TableOfContents: path.join(__dirname, 'src/styleguide/components/overrides/TableOfContents'),

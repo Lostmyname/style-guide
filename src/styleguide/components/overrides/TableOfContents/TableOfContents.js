@@ -62,14 +62,13 @@ const renderLevel = (sections, loc, tocMode, useRouterLinks = false, searchTerm 
 
     const selected = !!(href && windowHash === href);
 
-
     processed.push({
       ...section,
       heading: !!section.name && children.length > 0,
       depth,
       content,
       selected,
-      shouldOpenInNewTab: !!section.href,
+      shouldOpenInNewTab: section.external,
       initialOpen: !!searchTerm.length || tocMode !== 'collapse' || containsSelected,
     });
 
