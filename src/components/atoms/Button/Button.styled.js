@@ -24,11 +24,11 @@ const ButtonTag = styled.button`
     outline: none;
   }
   
-  ${({ outlined, unstyled, color, }) => !outlined && !unstyled && defaultButton(color)};
-  ${({ outlined, unstyled, color, }) => outlined && !unstyled && outlinedButton(color)};
-  ${({ raised, unstyled, color }) => raised && !unstyled && raisedButton(color)};
-  ${({ unstyled }) => unstyled && unstyledButton};
-  ${({ disabled }) => disabled && disabledButton};
+  ${({ outlined, unstyled, color, }) => !outlined && !unstyled && defaultButton(color)}
+  ${({ outlined, unstyled, color, }) => outlined && !unstyled && outlinedButton(color)}
+  ${({ raised, unstyled, color }) => raised && !unstyled && raisedButton(color)}
+  ${({ unstyled }) => unstyled && unstyledButton}
+  ${({ disabled }) => disabled && disabledButton}
 `;
 
 /** @component */

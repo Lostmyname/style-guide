@@ -29,13 +29,13 @@ AppWrapper.Content = styled.main`
   ${on('tablet-up')`
     flex: 0 1 calc(100% - 240px);
     max-width: 860px;
-    padding: 20px 40px
+    padding: 20px 40px;
   `}
 `;
 
 AppWrapper.Content.MenuButton = styled(ButtonTag)`
   padding: 10px;
-  position: absolute
+  position: absolute;
   background-color: ${palette['almost-light']};
   border-radius: 0;
   top: 20px;
@@ -48,7 +48,7 @@ AppWrapper.Content.MenuButton = styled(ButtonTag)`
   &:focus, 
   &:hover {
     outline: 0;
-    color: ${palette['almost-black']}
+    color: ${palette['almost-black']};
   }
   
   ${on('tablet-up')`

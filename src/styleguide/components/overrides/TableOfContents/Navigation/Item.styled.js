@@ -3,7 +3,7 @@ import { palette } from 'src/styles/colors.styled';
 import typography from 'src/styles/typography.styled';
 
 const NavItem = styled.li`
-  ${typography.fontSize(14)}; 
+  ${typography.fontSize(14)}
   
   margin: ${({ depth }) => depth === 0 ? '10px 20px' : '0'};
   padding: 0;
@@ -14,7 +14,7 @@ const NavItem = styled.li`
     margin: 0 -10px;
     padding: 8px 10px;
     position: relative;
-    color: ${({ selected }) => selected ? '#FFF' : palette['almost-black']}
+    color: ${({ selected }) => selected ? '#FFF' : palette['almost-black']};
     z-index: 1;
     &:before {
       content: '';
@@ -33,14 +33,14 @@ const NavItem = styled.li`
       transition: .25s cubic-bezier(.07,.74,.13,1.18);
     }
     &:hover {
-      color: ${({ selected }) => selected ? '#FFF' : palette.green}
+      color: ${({ selected }) => selected ? '#FFF' : palette.green};
     }
   }
 `;
 
 NavItem.Heading = styled.h4`
-  ${({ depth }) => depth === 0 && typography.fontSize(16)};
-  ${({ depth }) => depth === 1 && typography.fontSize(14)};
+  ${({ depth }) => depth === 0 && typography.fontSize(16)}
+  ${({ depth }) => depth === 1 && typography.fontSize(14)}
   
   margin: ${({ depth }) => depth === 0 ? '0 -20px' : '0'};
   margin-top: ${({ depth }) => depth !== 0 && '15px'};

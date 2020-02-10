@@ -8,14 +8,14 @@ const buttonBoxShadow = (baseColor, size = 4) => css`
 `;
 
 export const defaultButton = (baseColor, hoverColor) => css`
-  background-color: ${palette[baseColor] ||  palette['grey-medium']};
-  color: ${palette.white}
+  background-color: ${palette[baseColor] || palette['grey-medium']};
+  color: ${palette.white};
   
   ${({ disabled }) => !disabled && css`
     &:hover,
     &:focus {
       background: ${hoverColor || darken(0.15, palette[baseColor] || palette['grey-medium'])};
-      color: ${palette.white}
+      color: ${palette.white};
     }
     &:active,
     &:active:hover,
@@ -29,17 +29,17 @@ export const outlinedButton = baseColor => css`
   background-color: transparent;
   border: ${baseRem(2)} solid ${({ raised }) => {
     if (raised) {
-      return darken(0.15, palette[baseColor] || palette['grey-medium'])
+      return darken(0.15, palette[baseColor] || palette['grey-medium']);
     }
-    return palette[baseColor] ||  palette['grey-medium']
+    return palette[baseColor] || palette['grey-medium'];
   }};
   
   border-bottom: ${({ raised }) => raised && 'none'};
   color: ${({ raised }) => {
     if (raised) {
-      return darken(0.15, palette[baseColor] || palette['grey-medium'])
+      return darken(0.15, palette[baseColor] || palette['grey-medium']);
     }
-    return palette[baseColor] ||  palette['grey-medium']
+    return palette[baseColor] || palette['grey-medium'];
   }};
   padding: 8px 38px;
   
@@ -65,6 +65,20 @@ export const outlinedButton = baseColor => css`
   `}
 `;
 
+export const disabledButton = css`
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    ${({ raised }) => raised && buttonBoxShadow(darken(0.15, palette['grey-light']))}
+    background-color: ${({ outlined }) => !outlined && palette['grey-light']};
+    border-color: ${({ outlined }) => outlined && palette['grey-light']};
+    color: ${({ outlined }) => outlined ? palette['grey-light'] : palette['almost-black']};
+    cursor: not-allowed;
+    transform: translateY(0);
+  }
+`;
+
 export const raisedButton = (baseColor) => css`
   ${buttonBoxShadow(darken(0.15, palette[baseColor] || palette['grey-medium']))}
   padding-bottom: 6px;
@@ -74,7 +88,7 @@ export const raisedButton = (baseColor) => css`
     &:hover,
     &:focus {
      ${buttonBoxShadow(darken(0.30, palette[baseColor] || palette['grey-medium']))}
-      color: ${palette.white}
+      color: ${palette.white};
       border-color: ${darken(0.30, palette[baseColor] || palette['grey-medium'])};
     }
     
@@ -99,19 +113,5 @@ export const unstyledButton = css`
   &:hover, 
   &:focus {
     color: ${({ color }) => palette[color] || palette['grey-medium']};
-  }
-`;
-
-export const disabledButton = css`
-  &,
-  &:hover,
-  &:focus,
-  &:active {
-    background-color: ${({ outlined }) => !outlined && palette['grey-light']};
-    border-color: ${({ outlined }) => outlined && palette['grey-light']};
-    color: ${({ outlined }) => outlined ? palette['grey-light'] : palette['almost-black']};
-    ${({ raised }) => raised && buttonBoxShadow(darken(0.15, palette['grey-light']))};
-    cursor: not-allowed;
-    transform: translateY(0);
   }
 `;

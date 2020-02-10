@@ -30,10 +30,10 @@ const font = {
     @import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i&display=swap');
     @import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
     
-    ${addFont('Wonderbly Boing', 'WonderblyBoing-RegularWEB')};
+    ${addFont('Wonderbly Boing', 'WonderblyBoing-RegularWEB')}
     ${addFont('Wonderbly Boing', 'WonderblyBoing-LightWEB', 200)}
-    ${addFont('Wonderbly Boing', 'WonderblyBoing-MediumWEB', 500)};
-    ${addFont('Wonderbly Boing', 'WonderblyBoing-SemiBoldWEB', 500)};
+    ${addFont('Wonderbly Boing', 'WonderblyBoing-MediumWEB', 500)}
+    ${addFont('Wonderbly Boing', 'WonderblyBoing-SemiBoldWEB', 500)}
   `
 };
 
@@ -45,7 +45,7 @@ const lineHeight = (value, useOldCalc = false) => css`
 
 const fontSize = (value, { desktopValue, useOldLineHeightCalc = false } = {}) => css`
   font-size: ${baseRem(value)};
-  ${lineHeight(value, useOldLineHeightCalc)};
+  ${lineHeight(value, useOldLineHeightCalc)}
   ${desktopValue && desktopValue !== value &&
     on('tablet-up')`
       font-size: ${baseRem(desktopValue)};
@@ -56,19 +56,19 @@ const fontSize = (value, { desktopValue, useOldLineHeightCalc = false } = {}) =>
 
 const tera = css`
   ${fontSize(30, { desktopValue: 36, useOldLineHeightCalc: true })}
-  ${font.headings};
+  ${font.headings}
   font-weight: 600;
 `;
 
 const giga = css`
   ${fontSize(24, { desktopValue: 30, useOldLineHeightCalc: true })}
-  ${font.headings};
+  ${font.headings}
   font-weight: 500;
 `;
 
 const mega = css`
   ${fontSize(20, { desktopValue: 24, useOldLineHeightCalc: true })}
-  ${font.headings};
+  ${font.headings}
   font-weight: 400;
 `;
 

@@ -11,7 +11,7 @@ export const on = label => (...args) => {
 	if (minWidth && maxWidth) {
 		return css`
 			@media (min-width: ${minWidth}px) and (max-width: ${maxWidth}px) {
-				${css(...args)};
+				${css(...args)}
 			}
 		`;
 	}
@@ -19,7 +19,7 @@ export const on = label => (...args) => {
 	if (minWidth) {
 		return css`
 			@media (min-width: ${minWidth}px) {
-				${css(...args)};
+				${css(...args)}
 			}
 		`;
 	}
@@ -27,7 +27,7 @@ export const on = label => (...args) => {
 	if (maxWidth) {
 		return css`
 			@media (max-width: ${maxWidth}px) {
-				${css(...args)};
+				${css(...args)}
 			}
 		`;
 	}
