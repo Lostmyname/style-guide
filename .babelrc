@@ -6,7 +6,8 @@
     "./src/components/**/*",
     "./src/config/**/*",
     "./src/hooks/**/*",
-    "./src/styles/**/*"
+    "./src/styles/**/*",
+    "./src/utils/**/*"
   ],
   "ignore": [ "./src/**/*.test.js" ]
 }
