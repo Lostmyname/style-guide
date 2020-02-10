@@ -1,11 +1,17 @@
 {
-  "name": "style-guide",
-  "version": "0.1.0",
+  "name": "@lostmyname/style-guide",
+  "version": "1.0.0",
   "description": "A set of standards for the writing, formatting and design which establishes requirements that improve communication and consistancy across Wonderbly.",
   "repository": "https://github.com/Lostmyname/style-guide",
   "author": "Wonderbly Engineering",
   "license": "MIT",
-  "private": true,
+  "files": [
+    "src/assets/**/*",
+    "src/components/**/*",
+    "src/config/**/*",
+    "src/hooks/**/*",
+    "src/styles/**/*"
+  ],
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
