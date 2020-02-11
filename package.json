@@ -31,7 +31,7 @@
     "react-tabs": "^3.0.0",
     "react-viewport-utils": "^1.11.0",
     "strip-html-comments": "^1.0.0",
-    "styled-components": "^4.4.1"
+    "styled-components": "^5.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
