@@ -48,7 +48,7 @@
     "build": "styleguidist build",
     "build:run": "yarn app:build && http-server ./styleguide -d false",
     "tool:build": "rm -rf lib && babel src --out-dir lib",
-    "postversion": "yarn tool:build && git commit --amend && git push && git push --tags && rm -rf build/temp"
+    "postversion": "yarn tool:build && git commit --amend --no-edit && git push && git push --tags && rm -rf lib"
   },
   "eslintConfig": {
     "extends": "react-app",
