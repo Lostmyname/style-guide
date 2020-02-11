@@ -17,7 +17,8 @@ module.exports = {
     "./src/config/**/*",
     "./src/hooks/**/*",
     "./src/styles/**/*",
-    "./src/utils/**/*"
+    "./src/utils/**/*",
+    "./src/index.js"
   ],
   "ignore": [ "./src/**/*.test.js" ]
 };
