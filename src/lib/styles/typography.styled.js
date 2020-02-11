@@ -8,7 +8,7 @@ export const BASE_FONT_SIZE = 16;
 const addFont = (fontName, fileName, fontWeight = 400, fontStyle = 'normal', fileFormats = ['eot','woff2','woff', 'svg']) => css`
   ${fontFace({
     fontFamily: fontName,
-    fontFilePath: `./src/assets/fonts/${fileName}`,
+    fontFilePath: `./src/lib/assets/fonts/${fileName}`,
     fontWeight: fontWeight,
     fontStyle: fontStyle,
     fileFormats: fileFormats 

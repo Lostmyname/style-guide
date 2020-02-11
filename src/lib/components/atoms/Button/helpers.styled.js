@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import { darken } from 'polished';
-import { palette } from 'src/styles/colors.styled';
-import { baseRem } from 'src/styles/typography.styled';
+import { palette } from 'src/lib/styles/colors.styled';
+import { baseRem } from 'src/lib/styles/typography.styled';
 
 const buttonBoxShadow = (baseColor, size = 4) => css`
   box-shadow: 0px ${baseRem(size)} ${baseColor};

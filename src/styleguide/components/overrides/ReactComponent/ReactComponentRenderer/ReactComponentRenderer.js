@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import DefaultPathline from 'styleguide-components/Pathline';
-import Tabs from 'src/styleguide/components/custom/Tabs';
+import Tabs from 'src/lib/styleguide/components/custom/Tabs';
 
 import Component from './ReactComponentRenderer.styled';
 import compact from 'lodash/compact';

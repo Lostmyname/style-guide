@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { on } from 'src/styles/responsive.styles';
+import { on } from 'src/lib/styles/responsive.styles';
 
 const TOC = styled.div`
   overflow-y: auto;

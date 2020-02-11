@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import typography from 'src/styles/typography.styled';
+import typography from 'src/lib/styles/typography.styled';
 
 const TabsBase = styled.div`
   ${typography.font.base}

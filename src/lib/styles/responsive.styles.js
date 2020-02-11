@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 import mapKeys from 'lodash/mapKeys';
 import kebabCase from 'lodash/kebabCase';
 
-import breakpoints from 'src/config/breakpoints';
+import breakpoints from 'src/lib/config/breakpoints';
 
 export const on = label => (...args) => {
 	const remappedBreakpoints = mapKeys(breakpoints, (value, key) => kebabCase(key));

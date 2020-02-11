@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import generateDataClass from 'src/utils/generate-data-class';
+import generateDataClass from 'src/lib/utils/generate-data-class';
 
 import ButtonTag, { ButtonLinkTag } from './Button.styled';
 

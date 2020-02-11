@@ -7,18 +7,12 @@ module.exports = {
     }],
     [require.resolve('babel-plugin-module-resolver'), {
       alias: {
-        src: './lib'
+        src: '.'
       }
     }]
   ],
   "only": [
-    "./src/assets/**/*",
-    "./src/components/**/*",
-    "./src/config/**/*",
-    "./src/hooks/**/*",
-    "./src/styles/**/*",
-    "./src/utils/**/*",
-    "./src/index.js"
+    "./src/lib/**/*",
   ],
-  "ignore": [ "./src/**/*.test.js" ]
+  "ignore": [ "./src/lib/**/*.test.js" ]
 };

@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 
-import { palette } from 'src/styles/colors.styled';
-import { on } from 'src/styles/responsive.styles';
-import typography from 'src/styles/typography.styled'
+import { palette } from 'src/lib/styles/colors.styled';
+import { on } from 'src/lib/styles/responsive.styles';
+import typography from 'src/lib/styles/typography.styled'
 
-import ButtonTag from 'src/components/atoms/Button/Button.styled';
+import ButtonTag from 'src/lib/components/atoms/Button/Button.styled';
 
 const AppWrapper = styled.div`
   display: flex;

@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { useDimensions } from 'react-viewport-utils';
 
-import breakpoints from 'src/config/breakpoints';
+import breakpoints from 'src/lib/config/breakpoints';
 
 const calculateResponsiveness = currentWidth => ({ maxWidth = currentWidth, minWidth = currentWidth }) => {
   return currentWidth <= maxWidth && currentWidth >= minWidth;

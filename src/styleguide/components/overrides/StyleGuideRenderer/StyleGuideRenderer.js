@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 
 import { ViewportProvider } from 'react-viewport-utils';
 
-import GlobalStyles from 'src/styles/global.styled';
-import App from 'src/styleguide/App';
+import GlobalStyles from 'src/lib/styles/global.styled';
+
+import App from '../../App';
 
 const StyleGuideRenderer = (props) => (
   <ViewportProvider>

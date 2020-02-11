@@ -8,7 +8,7 @@ let pageCount = 0;
 const isRoot = () => pageCount === 0;
 
 const getContentPath = (name) => {
-  const contentPath = `src/docs/${name.toLowerCase()}.md`;
+  const contentPath = `src/styleguide/docs/${name.toLowerCase()}.md`;
   if (fs.existsSync(contentPath)) {
     return contentPath;
   }

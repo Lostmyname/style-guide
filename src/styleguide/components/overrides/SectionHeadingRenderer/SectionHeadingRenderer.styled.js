@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { palette } from 'src/styles/colors.styled';
+import { palette } from 'src/lib/styles/colors.styled';
 
 const Header = styled.header`
   margin-bottom: 20px;

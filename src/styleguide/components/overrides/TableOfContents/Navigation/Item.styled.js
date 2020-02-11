@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { palette } from 'src/styles/colors.styled';
-import typography from 'src/styles/typography.styled';
+import { palette } from 'src/lib/styles/colors.styled';
+import typography from 'src/lib/styles/typography.styled';
 
 const NavItem = styled.li`
   ${typography.fontSize(14)}
