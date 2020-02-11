@@ -1,70 +1,93 @@
-# Wonderbly Style Guide
+# Wonderbly Design System
+[![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Wonderbly Design System provides React components and styles to the Wonderbly website. It also generates an additional website based off of Markdown files, JSDocs and PropType data to provide examples and usages, which can be found at [http://wbly-style-guide.herokuapp.com](http://wbly-style-guide.herokuapp.com).
 
-## Available Scripts
+## Table of contents
+1. [Install](#install)
+2. [Usage](#usage)
+3. [Contributing](#contributing)
+    - [Setup](#setup)
+    - [Updating/Creating Components](#updatingcreating-components)
+    - [Tests](#tests)
 
-In the project directory, you can run:
+## Install
 
-### `yarn start`
+Install with NPM:
+```
+npm install @lostmyname/style-guide
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Install with Yarn:
+```
+yarn add @lostmyname/style-guide
+```
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Usage
+Import any of the components, utilities, or configs from the lib directory into your app to start using them.
 
-### `yarn test`
+```js
+import React from 'react';
+import ReactDOM from 'react-dom'
+// Added alias to convert `@lostmyname/style-guide/lib/components/atoms`
+// to `wonderbly-atoms`. 
+import Button from 'wonderbly-atoms/Button';
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ReactDOM.render(
+  <main>
+    <Button raised color="green">Click me</Button>
+  </main>,
+  document.getElementById('root')
+);
+```
 
-### `yarn build`
+To see full examples and more usages across our components, visit [http://wbly-style-guide.herokuapp.com](http://wbly-style-guide.herokuapp.com).
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Contributing
+Although most contributions will be done by the engineering team at Wonderbly, we are always thrilled and open to see others putting their own stamp into the things we build.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+These can be fixing issues such as visual errors, improving our test suite, or even simpler improvements like spelling or updating parts of our documentation.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Setup
+Once you have cloned the repo you'll need to install the dependencies before you can do anything. We use Yarn, so to avoid confusion between lock files please ensure you have that installed before continuing.
 
-### `yarn eject`
+Install the dependencies:
+```
+$ yarn
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Once you have installed all the required packages you can run your local environment to see your changes by running:
+```
+$ yarn start
+```
+This will spin up a local server, the address of which will be outputted in the console.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Updating/Creating Components
+We are always working towards improving the UX of Wonderbly, in doing so we need to ensure that every component built within this package must have the following:
 
-## Learn More
+- Tests (using Jest)
+- Type Checking (via PropTypes or TypeScript)
+- Documentation and Examples
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Tests
+Run all tests
+```js
+$ yarn test
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Run atom component tests
+```js
+$ yarn test:atoms
+```
 
-### Code Splitting
+Run molecule component tests
+```js
+$ yarn test:molecules
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Run organism component tests
+```js
+$ yarn test:organisms
+```
