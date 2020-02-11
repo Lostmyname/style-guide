@@ -9,7 +9,7 @@ Boing is a bold, rounded sans serif font ideal for a range of communication need
 We have a select number of font sizes, chosen for harmonious balance. In the larger sizes, we bump up the font weight and in the smaller sizes, we decrease the font weight for greater clarity in the typeface.
 
 ```js { "noeditor": true }
-import Button from 'wonderbly-components/atoms/Button';
+import Button from 'wonderbly-atoms/Button';
 
 <Button>Hi</Button>
 ```

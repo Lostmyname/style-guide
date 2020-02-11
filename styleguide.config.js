@@ -29,7 +29,7 @@ const addSection = (name, sections) => {
   }
 };
 
-const addComponents = (name, path = `src/components/${name.toLowerCase()}`) => ({
+const addComponents = (name, path = `src/lib/components/${name.toLowerCase()}`) => ({
   name,
   sectionDepth: 1,
   components: `${path}/**/*.js`,
@@ -48,7 +48,7 @@ module.exports = {
   ],
   moduleAliases: {
     'src': path.resolve(__dirname, 'src'),
-    'wonderbly-components': path.resolve(__dirname, 'src/components'),
+    'wonderbly-atoms': path.resolve(__dirname, 'src/lib/components/atoms'),
     'styleguide-client': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client'),
     'styleguide-components': path.resolve(__dirname, 'node_modules/react-styleguidist/lib/client/rsg-components')
   },

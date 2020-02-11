@@ -3,7 +3,7 @@ import { useDimensionsEffect } from 'react-viewport-utils';
 
 import get from 'lodash/get';
 
-import { useResponsive } from '../../hooks';
+import { useResponsive } from 'src/lib/hooks';
 
 import AppWrapper from './App.styled';
 
