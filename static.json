@@ -1,0 +1,6 @@
+{
+  "root": "styleguide/",
+  "routes": {
+    "/**": "index.html"
+  }
+}

@@ -1,1 +1,1 @@
-web: http-server ./styleguide -d false
+web: bin/boot

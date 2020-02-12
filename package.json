@@ -17,7 +17,6 @@
     "babel-plugin-module-resolver": "^4.0.0",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
-    "http-server": "^0.12.1",
     "lodash": "^4.17.15",
     "markdown-to-jsx": "^6.10.3",
     "node-sass": "^4.13.0",
@@ -46,7 +45,6 @@
     "start": "styleguidist server",
     "test": "react-scripts test",
     "build": "styleguidist build",
-    "build:run": "yarn app:build && http-server ./styleguide -d false",
     "tool:build": "rm -rf lib && babel src --out-dir ./",
     "postversion": "yarn tool:build && npm publish && rm -rf lib && git push && git push --tags"
   },
