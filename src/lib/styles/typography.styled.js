@@ -33,8 +33,8 @@ const font = {
     ${addFont('Wonderbly Boing', 'WonderblyBoing-SemiBoldWEB', 500)};
   `,
   imports: [
-    'https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i&display=swap',
-    'https://fonts.googleapis.com/css?family=Inconsolata&display=swap',
+    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i&display=swap',
+    '//fonts.googleapis.com/css?family=Inconsolata&display=swap',
   ]
 };
 
