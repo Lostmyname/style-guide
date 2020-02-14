@@ -48,7 +48,7 @@
     "test": "react-scripts test",
     "build": "styleguidist build",
     "build:run": "yarn build && http-server ./styleguide -d false",
-    "tool:build": "rm -rf lib && babel src --out-dir ./",
+    "tool:build": "rm -rf lib && babel src --out-dir ./ && cp -a ./src/lib/assets ./lib",
     "postversion": "yarn tool:build && npm publish && rm -rf lib && git push && git push --tags"
   },
   "eslintConfig": {

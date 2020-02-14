@@ -22,7 +22,7 @@ const Global = () => (
   <Fragment>
     <Helmet>
       {typography.font.imports.map(font => (
-        <link href={font} rel="preload" as="font" crossOrigin />
+        <link href={font} rel="stylesheet" />
       ))}
     </Helmet>
     <GlobalStyles />

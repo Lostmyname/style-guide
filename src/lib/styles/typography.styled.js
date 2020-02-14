@@ -8,7 +8,7 @@ export const BASE_FONT_SIZE = 16;
 const addFont = (fontName, fileName, fontWeight = 400, fontStyle = 'normal', fileFormats = ['eot','woff2','woff', 'svg']) => css`
   ${fontFace({
     fontFamily: fontName,
-    fontFilePath: `./src/lib/assets/fonts/${fileName}`,
+    fontFilePath: `/lib/assets/fonts/${fileName}`,
     fontWeight: fontWeight,
     fontStyle: fontStyle,
     fileFormats: fileFormats 
@@ -18,7 +18,7 @@ const addFont = (fontName, fileName, fontWeight = 400, fontStyle = 'normal', fil
 
 const font = {
   base: css`
-    font-family: 'Lato', sans-serif;
+    font-family: 'Source Serif Pro', sans-serif;
   `,
   headings: css`
     font-family: 'Wonderbly Boing', sans-serif;
@@ -33,7 +33,7 @@ const font = {
     ${addFont('Wonderbly Boing', 'WonderblyBoing-SemiBoldWEB', 500)};
   `,
   imports: [
-    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i&display=swap',
+    '//fonts.googleapis.com/css?family=Source+Serif+Pro&display=swap',
     '//fonts.googleapis.com/css?family=Inconsolata&display=swap',
   ]
 };
