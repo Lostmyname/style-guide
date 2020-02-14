@@ -2,15 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { ViewportProvider } from 'react-viewport-utils';
+import { HelmetProvider } from 'react-helmet-async';
 
-import GlobalStyles from 'src/lib/styles/global.styled';
+import Global from 'src/lib/styles/global.styled';
 
 import App from '../../App';
 
 const StyleGuideRenderer = (props) => (
   <ViewportProvider>
-    <GlobalStyles />
-    <App {...props} />
+    <HelmetProvider>
+      <Global />
+      <App {...props} />
+    </HelmetProvider>
   </ViewportProvider>
 );
 

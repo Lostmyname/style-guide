@@ -1,16 +1,32 @@
+import React, { Fragment } from 'react';
 import { createGlobalStyle } from 'styled-components'
+import { Helmet } from 'react-helmet-async';
 
 import typography, { BASE_FONT_SIZE } from './typography.styled'
 
-const GlobalStyle = createGlobalStyle`
-  ${typography.font.imports};
+const GlobalStyles = createGlobalStyle`
+  ${typography.font.face};
   html, body {
     ${typography.font.base};
     font-size: ${BASE_FONT_SIZE}px;
+  }
+  p {
+    ${typography.lineHeight(BASE_FONT_SIZE)}
   }
   * {
     box-sizing: border-box;
   }
 `;
 
-export default GlobalStyle;
+const Global = () => (
+  <Fragment>
+    <Helmet>
+      {typography.font.imports.map(font => (
+        <link href={font} rel="preload" as="font" crossOrigin />
+      ))}
+    </Helmet>
+    <GlobalStyles />
+  </Fragment>
+);
+
+export default Global;

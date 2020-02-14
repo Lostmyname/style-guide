@@ -25,6 +25,7 @@
     "prismjs": "^1.17.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-helmet-async": "^1.0.4",
     "react-scripts": "3.3.0",
     "react-simple-code-editor": "^0.10.0",
     "react-styleguidist": "^10.2.1",
@@ -46,7 +47,7 @@
     "start": "styleguidist server",
     "test": "react-scripts test",
     "build": "styleguidist build",
-    "build:run": "yarn app:build && http-server ./styleguide -d false",
+    "build:run": "yarn build && http-server ./styleguide -d false",
     "tool:build": "rm -rf lib && babel src --out-dir ./",
     "postversion": "yarn tool:build && npm publish && rm -rf lib && git push && git push --tags"
   },

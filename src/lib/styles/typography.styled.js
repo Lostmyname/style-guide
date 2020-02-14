@@ -26,15 +26,16 @@ const font = {
   monospace: css`
     font-family: 'Inconsolata', monospace;
   `,
-  imports: css`
-    @import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i&display=swap');
-    @import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
-    
-    ${addFont('Wonderbly Boing', 'WonderblyBoing-RegularWEB')}
-    ${addFont('Wonderbly Boing', 'WonderblyBoing-LightWEB', 200)}
-    ${addFont('Wonderbly Boing', 'WonderblyBoing-MediumWEB', 500)}
-    ${addFont('Wonderbly Boing', 'WonderblyBoing-SemiBoldWEB', 500)}
-  `
+  face: css`
+    ${addFont('Wonderbly Boing', 'WonderblyBoing-RegularWEB')};
+    ${addFont('Wonderbly Boing', 'WonderblyBoing-LightWEB', 200)};
+    ${addFont('Wonderbly Boing', 'WonderblyBoing-MediumWEB', 500)};
+    ${addFont('Wonderbly Boing', 'WonderblyBoing-SemiBoldWEB', 500)};
+  `,
+  imports: [
+    'https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i&display=swap',
+    'https://fonts.googleapis.com/css?family=Inconsolata&display=swap',
+  ]
 };
 
 export const baseRem = value => rem(value, BASE_FONT_SIZE);
