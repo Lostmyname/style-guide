@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 
 import DefaultSectionHeading from 'styleguide-components/SectionHeading';
 import DefaultMarkdown from 'styleguide-components/Markdown';
@@ -15,9 +16,12 @@ const SectionRenderer = (props) => {
     description,
     pagePerSection
   } = props;
+  const contentDescription = get(content, 'props.examples[0].content');
+  const startsWithOneHashRegex = /^#( |\w)/g;
+  const hasTitleInContent = contentDescription && !!contentDescription.match(startsWithOneHashRegex);
   return (
     <section>
-      {name && (
+      {name && !hasTitleInContent && (
         <DefaultSectionHeading
           depth={depth}
           id={slug}

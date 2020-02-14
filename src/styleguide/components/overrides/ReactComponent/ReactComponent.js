@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
+import getTitleFromMarkdown from 'src/styleguide/utils/get-title-from-markdown';
+import removeTitleFromMarkdown from 'src/styleguide/utils/remove-title-from-markdown';
+
 import DefaultSectionHeading from 'styleguide-components/SectionHeading';
 import DefaultContext from 'styleguide-components/Context';
 import DefaultSlot from 'styleguide-components/Slot';
@@ -15,13 +18,14 @@ const ReactComponent = ({ component, exampleMode }) => {
   const { config: { pagePerSection } } = useContext(DefaultContext);
 
   const { name, visibleName, filepath, pathLine, props = {} } = component;
-  const { description = '', examples = [], tags = {} } = props;
+  let { description = '', examples = [], tags = {} } = props;
 
   const hasDescription = !!description && description !== '\n';
 
   if (!name) {
     return null;
   }
+
 
   return (
     <ReactComponentRenderer
@@ -39,12 +43,12 @@ const ReactComponent = ({ component, exampleMode }) => {
           slotProps={component}
           depth={1}
         >
-          {visibleName}
+          {getTitleFromMarkdown(examples, true) || visibleName}
         </DefaultSectionHeading>
       }
       examples={
         examples.length > 0 ? (
-          <DefaultExamples examples={examples} name={name} exampleMode={exampleMode} />
+          <DefaultExamples examples={removeTitleFromMarkdown(examples)} name={name} exampleMode={exampleMode} />
         ) : (
           <DefaultExamplePlaceholder name={name} />
         )

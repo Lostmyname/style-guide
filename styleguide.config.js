@@ -104,7 +104,7 @@ module.exports = {
   sections: [
     addSection('Overview'),
     addSection('Rules', [
-      addSection('Type')
+      addSection('Type'),
     ]),
     addSection('Components', [
       addComponents('Atoms'),
