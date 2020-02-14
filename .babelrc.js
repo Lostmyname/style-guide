@@ -7,7 +7,7 @@ module.exports = {
     }],
     [require.resolve('babel-plugin-module-resolver'), {
       alias: {
-        src: '.'
+        src: './src'
       }
     }]
   ],
