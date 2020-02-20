@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { createGlobalStyle } from 'styled-components'
 import { Helmet } from 'react-helmet-async';
+import { rem } from 'polished';
 
 import typography, { BASE_FONT_SIZE } from './typography.styled'
 
@@ -30,5 +31,7 @@ const Global = ({ useOldStyles = false }) => (
     )}
   </Fragment>
 );
+
+export const baseRem = value => rem(value, BASE_FONT_SIZE);
 
 export default Global;

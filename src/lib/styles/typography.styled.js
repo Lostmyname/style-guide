@@ -1,7 +1,8 @@
 import { css } from 'styled-components';
-import { rem, fontFace } from 'polished';
+import { fontFace } from 'polished';
 
 import { on } from './responsive.styles';
+import { baseRem } from './global.styled';
 
 export const BASE_FONT_SIZE = 16;
 
@@ -37,8 +38,6 @@ const font = {
     '//fonts.googleapis.com/css?family=Inconsolata&display=swap',
   ]
 };
-
-export const baseRem = value => rem(value, BASE_FONT_SIZE);
 
 const lineHeight = (value, useOldCalc = false) => css`
   line-height: ${useOldCalc ? ((value + 8) / value) : baseRem(value * 1.618)};
