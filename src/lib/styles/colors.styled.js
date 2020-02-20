@@ -1,3 +1,5 @@
+import { css } from 'styled-components';
+
 export const palette = {
   // Green
   'green-light': '#BFE8DE',
@@ -46,3 +48,11 @@ export const palette = {
   'grey-dark': '#3a4d5f',
   'almost-black': '#092137',
 };
+
+export const backgroundColor = colorKey => css`
+  background-color: ${palette[colorKey] || palette['grey-medium']};
+`;
+
+export const color = colorKey => css`
+  color: ${palette[colorKey] || palette['grey-medium']};
+`;
