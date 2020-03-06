@@ -1,7 +1,8 @@
 import { css } from 'styled-components';
 import { darken } from 'polished';
 import { palette } from 'src/lib/styles/colors.styled';
-import { baseRem } from 'src/lib/styles/typography.styled';
+import { padded, spaced } from 'src/lib/styles/sizing.styled';
+import { baseRem } from 'src/lib/styles/global.styled';
 
 const buttonBoxShadow = (baseColor, size = 4) => css`
   box-shadow: 0px ${baseRem(size)} ${baseColor};
@@ -41,24 +42,24 @@ export const outlinedButton = baseColor => css`
     }
     return palette[baseColor] || palette['grey-medium'];
   }};
-  padding: 8px 38px;
+  ${padded(8, 38)}
   
   ${({ disabled }) => !disabled && css`
     &:hover,
     &:focus {
       ${buttonBoxShadow(palette[baseColor] || palette['grey-medium'], 2)}
-      padding-bottom: 6px;
-      transform: translateY(-4px);
-      margin-bottom: 2px;
+      ${padded.bottom(6)}
+      ${spaced.bottom(2)}
+      transform: translateY(-${baseRem(4)});
     }
   
     &:active,
     &:active:hover,
     &:active:focus {
+      ${padded.bottom(8)}
+      ${spaced.bottom('none')}
       background: ${palette[baseColor] || palette['grey-medium']};
       box-shadow: none;
-      padding-bottom: 8px;
-      margin-bottom: 0;
       color: ${palette.white};
       transform: scale(0.95) translateY(0);
     }
@@ -81,8 +82,8 @@ export const disabledButton = css`
 
 export const raisedButton = (baseColor) => css`
   ${buttonBoxShadow(darken(0.15, palette[baseColor] || palette['grey-medium']))}
-  padding-bottom: 6px;
-  margin-bottom: 4px;
+  ${padded.bottom(6)}
+  ${spaced.bottom(4)}
   
   ${({ disabled }) => !disabled && css`
     &:hover,
@@ -95,11 +96,11 @@ export const raisedButton = (baseColor) => css`
     &:active,
     &:active:hover,
     &:active:focus {
+      ${padded.bottom(8)}
+      ${spaced.bottom('none')}
       border-color: transparent;
       box-shadow: none;
-      transform: translateY(2px);
-      padding-bottom: 8px;
-      margin-bottom: 0;
+      transform: translateY(${baseRem(2)});
     }
   `};
 `;
@@ -108,8 +109,8 @@ export const unstyledButton = css`
   background-color: transparent;
   border-color: transparent;
   color: ${palette['almost-black']};
-  padding-left: 0;
-  padding-right: 0;
+  ${padded.left('none')}
+  ${padded.right('none')}
   &:hover, 
   &:focus {
     color: ${({ color }) => palette[color] || palette['grey-medium']};
